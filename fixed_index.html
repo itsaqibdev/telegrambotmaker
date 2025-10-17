@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Bot Builder</title>
+    <link href="https://unpkg.com/blockly/blockly.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Telegram Bot Builder</h1>
+            <div class="controls">
+                <button id="run-btn">▶️ Run Simulation</button>
+                <button id="export-btn">💾 Export Code</button>
+                <button id="clear-btn">🗑️ Clear</button>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div id="blocklyDiv" class="blockly-container"></div>
+            
+            <div class="right-panel">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="preview">Preview</button>
+                    <button class="tab-btn" data-tab="code">Generated Code</button>
+                </div>
+                
+                <div id="preview-tab" class="tab-content active">
+                    <div class="telegram-simulator">
+                        <div class="chat-header">
+                            <div class="chat-title">Telegram Bot</div>
+                        </div>
+                        <div id="chat-messages" class="chat-messages">
+                            <!-- Messages will appear here -->
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="user-input" placeholder="Type a message...">
+                            <button id="send-btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="code-tab" class="tab-content">
+                    <pre id="generated-code"># Your generated Python code will appear here</pre>
+                    <button id="copy-code">Copy to Clipboard</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toolbox Definition -->
+    <xml id="toolbox" style="display: none">
+        <category name="Events" colour="230">
+            <block type="on_message"></block>
+        </category>
+        <category name="Actions" colour="160">
+            <block type="send_message"></block>
+        </category>
+        <category name="Logic" colour="210">
+            <block type="if_contains"></block>
+        </category>
+        <category name="Text" colour="60">
+            <block type="text"></block>
+        </category>
+    </xml>
+
+    <!-- Blockly Dependencies -->
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/python_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/msg/en.js"></script>
+    
+    <!-- Custom Blocks and App Logic -->
+    <script src="blocks/telegramBlocks.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Telegram Bot Builder - Robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://botwind.com/telegram-bot-builder/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Block access to scripts and assets (optional)
+Disallow: /blocks/
+Disallow: /assets/
+
+# Allow main pages
+Allow: /index.html
+Allow: /styles.css

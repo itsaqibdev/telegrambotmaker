@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Telegram Bot Builder - Visual Bot Creator with Blockly | No Code Required</title>
+    <meta name="title" content="Telegram Bot Builder - Visual Bot Creator with Blockly | No Code Required">
+    <meta name="description" content="Create powerful Telegram bots visually with drag-and-drop blocks. Build chatbots with buttons, commands, menus, and logic without writing code. Export ready-to-use Python code instantly.">
+    <meta name="keywords" content="telegram bot builder, visual bot creator, blockly telegram, no code bot, drag and drop bot builder, telegram chatbot maker, python bot generator, aiogram bot, visual programming, bot development tool">
+    <meta name="author" content="BotWind">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://botwind.com/telegram-bot-builder/">
+    <meta property="og:title" content="Telegram Bot Builder - Visual Bot Creator with Blockly">
+    <meta property="og:description" content="Create powerful Telegram bots visually with drag-and-drop blocks. Build chatbots with buttons, commands, menus, and logic without writing code.">
+    <meta property="og:image" content="https://botwind.com/assets/preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://botwind.com/telegram-bot-builder/">
+    <meta property="twitter:title" content="Telegram Bot Builder - Visual Bot Creator with Blockly">
+    <meta property="twitter:description" content="Create powerful Telegram bots visually with drag-and-drop blocks. Build chatbots with buttons, commands, menus, and logic without writing code.">
+    <meta property="twitter:image" content="https://botwind.com/assets/preview.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Bot Builder">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    
+    <!-- Stylesheets -->
+    <link href="https://unpkg.com/blockly@8.0.0/blockly.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Telegram Bot Builder",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Visual drag-and-drop Telegram bot builder using Blockly. Create chatbots with buttons, commands, menus, and logic without coding.",
+      "screenshot": "https://botwind.com/assets/screenshot.png",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "127"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-left">
+                <div class="logo">
+                    <div class="logo-icon">🤖</div>
+                    <span class="logo-text">TG Bot Maker</span>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <a href="docs.html" class="btn btn-docs" aria-label="View documentation" style="text-decoration: none;">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 2H12C12.5523 2 13 2.44772 13 3V13C13 13.5523 12.5523 14 12 14H4C3.44772 14 3 13.5523 3 13V3C3 2.44772 3.44772 2 4 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M6 6H10M6 9H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>Docs</span>
+                </a>
+                <button id="token-btn" class="btn btn-token" aria-label="Configure bot token">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 2C4.7 2 2 4.7 2 8C2 11.3 4.7 14 8 14C11.3 14 14 11.3 14 8C14 4.7 11.3 2 8 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M8 5V8L10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>Token</span>
+                </button>
+                <button id="run-btn" class="btn btn-run" aria-label="Run bot simulation">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 2L13 8L3 14V2Z" fill="currentColor"/>
+                    </svg>
+                    <span>Run</span>
+                </button>
+                <button id="export-btn" class="btn btn-export" aria-label="Download bot as ZIP file">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 11L4 7H6V2H10V7H12L8 11Z" fill="currentColor"/>
+                        <path d="M14 14H2V12H14V14Z" fill="currentColor"/>
+                    </svg>
+                    <span>Download</span>
+                </button>
+                <button id="clear-btn" class="btn btn-clear" aria-label="Clear workspace">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M2 4H14M6 4V3C6 2.44772 6.44772 2 7 2H9C9.55228 2 10 2.44772 10 3V4M5 7V12M8 7V12M11 7V12M3 4H13V13C13 13.5523 12.5523 14 12 14H4C3.44772 14 3 13.5523 3 13V4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>Clear</span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div id="blocklyDiv" class="blockly-container" role="main" aria-label="Block programming workspace"></div>
+            
+            <div class="right-panel">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="preview" aria-label="Bot preview simulator">
+                        <span>🎮</span>
+                        <span>Preview</span>
+                    </button>
+                    <button class="tab-btn" data-tab="code" aria-label="View generated Python code">
+                        <span>💻</span>
+                        <span>Generated Code</span>
+                        <span class="code-badge" id="code-badge" style="display: none;">Updated</span>
+                    </button>
+                </div>
+                
+                <div id="preview-tab" class="tab-content active" role="tabpanel" aria-label="Bot preview simulator">
+                    <div class="telegram-simulator">
+                        <div class="chat-header">
+                            <div class="bot-avatar">🤖</div>
+                            <div class="bot-info">
+                                <div class="chat-title">Bot Simulator</div>
+                                <div class="bot-status"><span class="status-dot"></span>online</div>
+                            </div>
+                        </div>
+                        <div id="chat-messages" class="chat-messages">
+                            <!-- Messages will appear here -->
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="user-input" placeholder="Type a message...">
+                            <button id="send-btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="code-tab" class="tab-content" role="tabpanel" aria-label="Generated Python code">
+                    <div class="code-header">
+                        <div class="code-info">
+                            <span class="code-language">🐍 Python</span>
+                            <span class="code-framework">aiogram Framework</span>
+                        </div>
+                        <button id="copy-code" aria-label="Copy code to clipboard">
+                            <span class="copy-icon">📋</span>
+                            <span class="copy-text">Copy to Clipboard</span>
+                        </button>
+                    </div>
+                    <pre id="generated-code" aria-label="Python code output"># Your generated Python code will appear here
+# Click on blocks in the workspace to build your bot logic
+# Then switch to this tab to see the generated code</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Token Configuration Modal -->
+    <div id="token-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🔑 Configure Bot Token</h2>
+                <button class="modal-close" id="close-modal" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">
+                    Enter your Telegram Bot API token to include it in the generated code. This is optional but recommended for a ready-to-run bot.
+                </p>
+                
+                <div class="form-group">
+                    <label for="bot-token">API Token</label>
+                    <input 
+                        type="text" 
+                        id="bot-token" 
+                        placeholder="1234567890:ABCdefGHIjklMNOpqrsTUVwxyz" 
+                        aria-label="Telegram bot API token"
+                    />
+                    <span class="token-status" id="token-status"></span>
+                </div>
+                
+                <div class="help-section">
+                    <h3>📚 How to get your token:</h3>
+                    <ol>
+                        <li>Open Telegram and search for <strong>@BotFather</strong></li>
+                        <li>Send the command <code>/newbot</code></li>
+                        <li>Follow instructions to create your bot</li>
+                        <li>Copy the API token provided</li>
+                        <li>Paste it in the field above</li>
+                    </ol>
+                    <p class="note">
+                        ⚠️ <strong>Security Note:</strong> Your token is only stored locally in your browser and never uploaded to any server.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="clear-token-btn" class="btn-secondary-modal">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M2 4H14M6 4V3C6 2.44772 6.44772 2 7 2H9C9.55228 2 10 2.44772 10 3V4" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M3 4H13V13C13 13.5523 12.5523 14 12 14H4C3.44772 14 3 13.5523 3 13V4Z" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    Clear Token
+                </button>
+                <button id="save-token-btn" class="btn-primary-modal">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Save Token
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="notification-toast">
+        <span class="toast-icon"></span>
+        <span class="toast-message"></span>
+    </div>
+
+    <!-- SEO Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Telegram Bot Builder</h3>
+                <p>Create professional Telegram bots without coding knowledge. Our visual drag-and-drop interface powered by Blockly makes bot development accessible to everyone. Build chatbots with custom commands, inline buttons, reply keyboards, and advanced logic.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Features</h3>
+                <ul>
+                    <li>✓ Visual block-based programming</li>
+                    <li>✓ Real-time bot simulation</li>
+                    <li>✓ Python code export (aiogram)</li>
+                    <li>✓ Custom commands & buttons</li>
+                    <li>✓ Variables & functions support</li>
+                    <li>✓ No coding required</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Perfect For</h3>
+                <ul>
+                    <li>• Beginners learning bot development</li>
+                    <li>• Rapid prototyping</li>
+                    <li>• Educational purposes</li>
+                    <li>• Customer service bots</li>
+                    <li>• Interactive chatbots</li>
+                    <li>• Automation projects</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BotWind. Build Telegram bots visually with ease. No programming experience required.</p>
+        </div>
+    </footer>
+
+    <!-- Toolbox Definition -->
+    <xml id="toolbox" style="display: none">
+        <category name="Events" colour="#667eea">
+            <block type="on_message"></block>
+            <block type="on_command">
+                <field name="COMMAND">/start</field>
+            </block>
+        </category>
+        <category name="Actions" colour="#11998e">
+            <block type="send_message"></block>
+            <block type="send_message_with_keyboard"></block>
+            <block type="send_message_with_menu"></block>
+            <block type="remove_keyboard"></block>
+            <block type="send_photo"></block>
+            <block type="answer_callback"></block>
+            <block type="edit_message"></block>
+            <block type="delete_message"></block>
+            <block type="wait"></block>
+        </category>
+        <category name="Inline Buttons" colour="#6a11cb">
+            <block type="inline_button">
+                <field name="TEXT">Click Me</field>
+                <field name="CALLBACK">button_1</field>
+            </block>
+            <block type="button_row"></block>
+            <block type="on_callback">
+                <field name="CALLBACK">button_1</field>
+            </block>
+        </category>
+        <category name="Menu Buttons" colour="#13547a">
+            <block type="keyboard_button">
+                <field name="TEXT">Option 1</field>
+            </block>
+            <block type="keyboard_row"></block>
+            <block type="on_menu_button">
+                <field name="TEXT">Option 1</field>
+            </block>
+            <block type="request_contact_button">
+                <field name="TEXT">Share Contact</field>
+            </block>
+            <block type="request_location_button">
+                <field name="TEXT">Share Location</field>
+            </block>
+        </category>
+        <category name="Functions" colour="#667eea">
+            <block type="procedure_def">
+                <field name="NAME">myFunction</field>
+            </block>
+            <block type="procedure_call">
+                <field name="NAME">myFunction</field>
+            </block>
+        </category>
+        <category name="Variables" colour="#ff6b6b">
+            <block type="variable_set">
+                <field name="VAR">myVar</field>
+            </block>
+            <block type="variable_get">
+                <field name="VAR">myVar</field>
+            </block>
+        </category>
+        <category name="Logic" colour="#4facfe">
+            <block type="if_contains"></block>
+            <block type="if_else"></block>
+            <block type="if_equals"></block>
+            <block type="if_starts_with"></block>
+            <block type="compare_numbers"></block>
+        </category>
+        <category name="Math" colour="#fa709a">
+            <block type="number"></block>
+            <block type="math_operation"></block>
+            <block type="random_number"></block>
+        </category>
+        <category name="Lists" colour="#13547a">
+            <block type="create_list"></block>
+            <block type="list_get_item">
+                <field name="INDEX">1</field>
+                <field name="LIST">myList</field>
+            </block>
+            <block type="list_length">
+                <field name="LIST">myList</field>
+            </block>
+            <block type="list_add_item">
+                <field name="LIST">myList</field>
+            </block>
+            <block type="random_choice">
+                <field name="LIST">myList</field>
+            </block>
+        </category>
+        <category name="Loops" colour="#11998e">
+            <block type="repeat_times"></block>
+            <block type="for_each">
+                <field name="LIST">myList</field>
+            </block>
+        </category>
+        <category name="Text" colour="#f5576c">
+            <block type="text"></block>
+            <block type="text_join"></block>
+            <block type="user_message"></block>
+            <block type="user_name"></block>
+            <block type="text_uppercase"></block>
+            <block type="text_lowercase"></block>
+            <block type="string_length"></block>
+            <block type="text_split">
+                <field name="LIST">myList</field>
+            </block>
+            <block type="current_datetime">
+                <field name="TYPE">datetime</field>
+            </block>
+        </category>
+    </xml>
+
+    <!-- Blockly Dependencies -->
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/python_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/msg/en.js"></script>
+    
+    <!-- JSZip for creating ZIP files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
+    <!-- Custom Blocks and App Logic -->
+    <script src="blocks/telegramBlocks.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

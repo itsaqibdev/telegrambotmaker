@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags - SEO Optimized -->
+    <title>Documentation - Telegram Bot Builder | Visual Bot Creator Tutorial & Guide</title>
+    <meta name="title" content="Telegram Bot Builder Documentation - Complete Guide to Visual Bot Development">
+    <meta name="description" content="Complete documentation for Telegram Bot Builder. Learn how to create chatbots without coding using drag-and-drop blocks, visual programming, and Blockly. Step-by-step tutorials for building Telegram bots with buttons, commands, menus, and automation.">
+    <meta name="keywords" content="telegram bot tutorial, bot builder guide, visual bot programming, no code chatbot, blockly bot development, telegram automation tutorial, chatbot creation guide, python bot generator, aiogram tutorial, drag drop bot maker, telegram bot documentation, visual programming guide, no coding bot builder, chatbot development tutorial">
+    <meta name="author" content="BotWind">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://botwind.com/telegram-bot-builder/docs.html">
+    <meta property="og:title" content="Telegram Bot Builder Documentation - Visual Bot Development Guide">
+    <meta property="og:description" content="Learn to build Telegram bots without coding. Complete guide with tutorials, examples, and best practices for visual bot development.">
+    <meta property="og:image" content="https://botwind.com/assets/docs-preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://botwind.com/telegram-bot-builder/docs.html">
+    <meta property="twitter:title" content="Telegram Bot Builder Documentation">
+    <meta property="twitter:description" content="Complete guide to building Telegram bots visually without coding">
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .docs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            min-height: 100vh;
+        }
+        
+        .docs-header {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .docs-nav {
+            position: sticky;
+            top: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .docs-nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .docs-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        
+        .docs-nav a:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .docs-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .docs-section h2 {
+            color: #2d3748;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        .docs-section h3 {
+            color: #4a5568;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .docs-section p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .feature-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+        }
+        
+        .keyword-tag {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.2rem;
+            font-weight: 500;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .back-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .docs-container {
+                padding: 1rem;
+            }
+            
+            .docs-section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); background-attachment: fixed;">
+    
+    <div class="docs-container">
+        <div class="docs-header">
+            <h1>📚 Telegram Bot Builder - Complete Documentation</h1>
+            <p style="font-size: 1.2rem; color: #4a5568; margin-top: 1rem;">
+                Master Visual Bot Development | No Code Required | Drag & Drop Bot Creator
+            </p>
+        </div>
+        
+        <a href="index.html" class="back-link">← Back to Bot Builder</a>
+        
+        <nav class="docs-nav">
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#blocks">Block Reference</a></li>
+                <li><a href="#tutorials">Tutorials</a></li>
+                <li><a href="#deployment">Deployment</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#seo">Keywords</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Overview Section -->
+        <section id="overview" class="docs-section">
+            <h2>🌟 What is Telegram Bot Builder?</h2>
+            <p>
+                <strong>Telegram Bot Builder</strong> is a revolutionary <strong>visual programming platform</strong> that enables anyone to create professional <strong>Telegram chatbots</strong> without writing code. Using intuitive <strong>drag-and-drop blocks</strong> powered by Google <strong>Blockly</strong>, you can build sophisticated <strong>automation bots</strong>, <strong>customer service bots</strong>, <strong>interactive chatbots</strong>, and <strong>messaging automation tools</strong> in minutes.
+            </p>
+            
+            <h3>🎯 Who Is This For?</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🎓 Beginners & Students</h4>
+                    <p>Learn <strong>bot development</strong> and <strong>programming concepts</strong> through visual blocks. Perfect for <strong>coding education</strong> and <strong>STEM learning</strong>.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>💼 Business Owners</h4>
+                    <p>Create <strong>customer support bots</strong>, <strong>sales automation</strong>, and <strong>marketing chatbots</strong> without hiring developers.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🚀 Entrepreneurs</h4>
+                    <p>Rapidly prototype <strong>bot ideas</strong>, build <strong>MVP chatbots</strong>, and validate concepts before full development.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>👨‍💻 Developers</h4>
+                    <p>Speed up development with <strong>visual prototyping</strong>, generate clean <strong>Python code</strong>, and reduce coding time by 80%.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Getting Started Section -->
+        <section id="getting-started" class="docs-section">
+            <h2>🚀 Getting Started - Build Your First Bot in 5 Minutes</h2>
+            
+            <h3>Step 1: Understanding the Interface</h3>
+            <p>The <strong>bot builder interface</strong> consists of three main areas:</p>
+            <ul style="color: #4a5568; line-height: 2;">
+                <li><strong>Block Toolbox</strong> (left): All available <strong>programming blocks</strong> organized by category</li>
+                <li><strong>Workspace</strong> (center): Drag blocks here to build your <strong>bot logic</strong></li>
+                <li><strong>Preview & Code</strong> (right): Test your bot and view generated <strong>Python code</strong></li>
+            </ul>
+            
+            <h3>Step 2: Create a Simple Welcome Bot</h3>
+            <p>Let's build a bot that responds to the <strong>/start command</strong>:</p>
+            <ol style="color: #4a5568; line-height: 2;">
+                <li>From the <strong>Events</strong> category, drag an <strong>"on command"</strong> block</li>
+                <li>Set the command to <code>/start</code></li>
+                <li>From <strong>Actions</strong>, drag a <strong>"send message"</strong> block inside</li>
+                <li>Add a <strong>"text"</strong> block and type your welcome message</li>
+                <li>Click <strong>"Run"</strong> to test in the simulator</li>
+            </ol>
+            
+            <h3>Step 3: Add Your Bot Token (Optional)</h3>
+            <p>
+                Enter your <strong>Telegram Bot API token</strong> in the header input field. Get your token from <strong>@BotFather</strong> on Telegram. This makes your downloaded bot <strong>ready to run immediately</strong>.
+            </p>
+            
+            <h3>Step 4: Download & Deploy</h3>
+            <p>
+                Click <strong>"Download ZIP"</strong> to get a complete package including:
+            </p>
+            <ul style="color: #4a5568; line-height: 2;">
+                <li><strong>bot.py</strong> - Your bot's Python code (aiogram framework)</li>
+                <li><strong>requirements.txt</strong> - All dependencies</li>
+                <li><strong>README.md</strong> - Setup instructions</li>
+                <li><strong>.gitignore</strong> - Git safety file</li>
+            </ul>
+        </section>
+        
+        <!-- Features Section -->
+        <section id="features" class="docs-section">
+            <h2>✨ Complete Feature List</h2>
+            
+            <h3>🎨 Visual Programming Features</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Drag & Drop Interface</h4>
+                    <p>Intuitive <strong>block-based programming</strong> with zero coding required</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Real-time Simulator</h4>
+                    <p>Test bots instantly with <strong>Telegram-like chat interface</strong></p>
+                </div>
+                <div class="feature-card">
+                    <h4>Code Generation</h4>
+                    <p>Export clean, production-ready <strong>Python code</strong></p>
+                </div>
+                <div class="feature-card">
+                    <h4>Auto-Documentation</h4>
+                    <p>Generated code includes <strong>comments and setup guides</strong></p>
+                </div>
+            </div>
+            
+            <h3>🤖 Bot Capabilities</h3>
+            <ul style="color: #4a5568; line-height: 2;">
+                <li><strong>Message Handlers</strong> - Respond to text messages, commands, and patterns</li>
+                <li><strong>Inline Buttons</strong> - Create interactive button menus with callbacks</li>
+                <li><strong>Reply Keyboards</strong> - Build custom keyboard layouts</li>
+                <li><strong>Contact & Location</strong> - Request user information</li>
+                <li><strong>Conditional Logic</strong> - If/else statements, comparisons, pattern matching</li>
+                <li><strong>Variables & Data</strong> - Store and manipulate data</li>
+                <li><strong>Functions</strong> - Create reusable bot behaviors</li>
+                <li><strong>Loops</strong> - Repeat actions, iterate over lists</li>
+                <li><strong>Text Operations</strong> - String manipulation, formatting</li>
+                <li><strong>Math Operations</strong> - Calculations, random numbers</li>
+                <li><strong>Lists & Arrays</strong> - Manage collections of data</li>
+            </ul>
+        </section>
+        
+        <!-- Block Reference Section -->
+        <section id="blocks" class="docs-section">
+            <h2>📦 Complete Block Reference Guide</h2>
+            
+            <h3>📨 Events - Trigger Points</h3>
+            <p>Event blocks define when your bot responds:</p>
+            <ul style="color: #4a5568; line-height: 2;">
+                <li><strong>On Message</strong> - Triggers for any text message</li>
+                <li><strong>On Command</strong> - Responds to slash commands (/start, /help, etc.)</li>
+                <li><strong>On Callback</strong> - Handles inline button clicks</li>
+                <li><strong>On Menu Button</strong> - Responds to reply keyboard buttons</li>
+            </ul>
+            
+            <h3>⚡ Actions - Bot Responses</h3>
+            <p>Action blocks make your bot do things:</p>
+            <ul style="color: #4a5568; line-height: 2;">
+                <li><strong>Send Message</strong> - Send text to users</li>
+                <li><strong>Send with Keyboard</strong> - Message with inline buttons</li>
+                <li><strong>Send with Menu</strong> - Message with reply keyboard</li>
+                <li><strong>Send Photo</strong> - Share images</li>
+                <li><strong>Remove Keyboard</strong> - Hide reply keyboard</li>
+                <li><strong>Answer Callback</strong> - Respond to button clicks</li>
+                <li><strong>Edit Message</strong> - Modify sent messages</li>
+                <li><strong>Delete Message</strong> - Remove messages</li>
+            </ul>
+            
+            <h3>🔘 Buttons - Interactive Elements</h3>
+            <p>Create clickable interfaces:</p>
+            <ul style="color: #4a5568; line-height: 2;">
+                <li><strong>Inline Button</strong> - Creates callback buttons</li>
+                <li><strong>Button Row</strong> - Arrange buttons horizontally</li>
+                <li><strong>Keyboard Button</strong> - Reply keyboard buttons</li>
+                <li><strong>Request Contact</strong> - Ask for phone number</li>
+                <li><strong>Request Location</strong> - Ask for GPS coordinates</li>
+            </ul>
+            
+            <h3>🔀 Logic - Decision Making</h3>
+            <p>Add intelligence to your bot:</p>
+            <ul style="color: #4a5568; line-height: 2;">
+                <li><strong>If Contains</strong> - Check if message contains text</li>
+                <li><strong>If Equals</strong> - Exact match comparison</li>
+                <li><strong>If Starts With</strong> - Prefix matching</li>
+                <li><strong>If/Else</strong> - Branch logic</li>
+                <li><strong>Compare Numbers</strong> - Math comparisons</li>
+            </ul>
+        </section>
+        
+        <!-- Tutorials Section -->
+        <section id="tutorials" class="docs-section">
+            <h2>🎓 Step-by-Step Tutorials</h2>
+            
+            <h3>Tutorial 1: Welcome & Help Bot</h3>
+            <p><strong>Goal:</strong> Create a bot that welcomes users and provides help</p>
+            <p><strong>Difficulty:</strong> Beginner | <strong>Time:</strong> 5 minutes</p>
+            <ol style="color: #4a5568; line-height: 2;">
+                <li>Add <strong>/start command</strong> handler</li>
+                <li>Send welcome message with user's name</li>
+                <li>Add <strong>/help command</strong> handler</li>
+                <li>List available commands</li>
+                <li>Test in simulator</li>
+            </ol>
+            
+            <h3>Tutorial 2: Quiz Bot with Buttons</h3>
+            <p><strong>Goal:</strong> Interactive quiz with inline buttons</p>
+            <p><strong>Difficulty:</strong> Intermediate | <strong>Time:</strong> 15 minutes</p>
+            <ol style="color: #4a5568; line-height: 2;">
+                <li>Create questions list</li>
+                <li>Add inline buttons for answers</li>
+                <li>Handle correct/incorrect responses</li>
+                <li>Track score with variables</li>
+                <li>Show final results</li>
+            </ol>
+            
+            <h3>Tutorial 3: Customer Service Bot</h3>
+            <p><strong>Goal:</strong> Automated support with menu options</p>
+            <p><strong>Difficulty:</strong> Intermediate | <strong>Time:</strong> 20 minutes</p>
+            <ol style="color: #4a5568; line-height: 2;">
+                <li>Create main menu keyboard</li>
+                <li>Add FAQ handlers</li>
+                <li>Implement contact request</li>
+                <li>Add business hours check</li>
+                <li>Collect user feedback</li>
+            </ol>
+        </section>
+        
+        <!-- Deployment Section -->
+        <section id="deployment" class="docs-section">
+            <h2>🚀 Deployment & Hosting Guide</h2>
+            
+            <h3>Running Locally</h3>
+            <div class="code-block">
+# Install dependencies
+pip install -r requirements.txt
+
+# Run your bot
+python bot.py
+            </div>
+            
+            <h3>Deploy to Cloud Platforms</h3>
+            <p>Deploy your bot for 24/7 operation on popular <strong>cloud hosting platforms</strong>:</p>
+            
+            <h4>🔷 Heroku (Free Tier Available)</h4>
+            <ul style="color: #4a5568; line-height: 2;">
+                <li>Create account at <strong>heroku.com</strong></li>
+                <li>Install Heroku CLI</li>
+                <li>Add <code>Procfile</code> with: <code>worker: python bot.py</code></li>
+                <li>Deploy: <code>git push heroku main</code></li>
+            </ul>
+            
+            <h4>🔷 PythonAnywhere</h4>
+            <ul style="color: #4a5568; line-height: 2;">
+                <li>Free hosting for Python bots</li>
+                <li>Upload bot files via web interface</li>
+                <li>Configure as "Always-on task"</li>
+            </ul>
+            
+            <h4>🔷 AWS, Google Cloud, DigitalOcean</h4>
+            <ul style="color: #4a5568; line-height: 2;">
+                <li>Professional <strong>VPS hosting</strong></li>
+                <li>Full control and scalability</li>
+                <li>Suitable for production bots</li>
+            </ul>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq" class="docs-section">
+            <h2>❓ Frequently Asked Questions</h2>
+            
+            <h3>Do I need programming knowledge?</h3>
+            <p>
+                <strong>No!</strong> That's the beauty of visual bot development. The <strong>drag-and-drop interface</strong> handles all the coding. However, understanding basic <strong>programming logic</strong> (if/then, loops) helps create more sophisticated bots.
+            </p>
+            
+            <h3>Is the generated code production-ready?</h3>
+            <p>
+                <strong>Yes!</strong> The exported <strong>Python code</strong> uses the industry-standard <strong>aiogram framework</strong>, follows best practices, includes error handling, and is fully commented. You can deploy it directly or customize further.
+            </p>
+            
+            <h3>Can I modify the generated code?</h3>
+            <p>
+                <strong>Absolutely!</strong> The code is yours. Edit it with any Python IDE, add custom features, integrate databases, or extend functionality beyond blocks.
+            </p>
+            
+            <h3>How do I get a Telegram Bot Token?</h3>
+            <ol style="color: #4a5568; line-height: 2;">
+                <li>Open Telegram and search for <strong>@BotFather</strong></li>
+                <li>Send <code>/newbot</code> command</li>
+                <li>Choose a name and username for your bot</li>
+                <li>Copy the <strong>API token</strong> provided</li>
+                <li>Paste it in the builder or bot.py file</li>
+            </ol>
+            
+            <h3>What's the difference between inline and reply keyboards?</h3>
+            <p>
+                <strong>Inline keyboards</strong> appear below messages as clickable buttons that trigger callbacks. <strong>Reply keyboards</strong> replace the user's keyboard with custom buttons that send text messages.
+            </p>
+            
+            <h3>Can I create multilingual bots?</h3>
+            <p>
+                <strong>Yes!</strong> Use variables to store different language texts and conditional logic to detect user language preferences.
+            </p>
+        </section>
+        
+        <!-- SEO Keywords Section -->
+        <section id="seo" class="docs-section">
+            <h2>🔍 Search Keywords & Topics</h2>
+            <p>Find what you need with these searchable terms:</p>
+            
+            <h3>Bot Development Terms</h3>
+            <div style="margin: 1rem 0;">
+                <span class="keyword-tag">telegram bot builder</span>
+                <span class="keyword-tag">visual bot creator</span>
+                <span class="keyword-tag">no code chatbot</span>
+                <span class="keyword-tag">drag drop bot maker</span>
+                <span class="keyword-tag">blockly bot development</span>
+                <span class="keyword-tag">visual programming bot</span>
+                <span class="keyword-tag">chatbot builder</span>
+                <span class="keyword-tag">bot maker online</span>
+                <span class="keyword-tag">telegram automation</span>
+                <span class="keyword-tag">python bot generator</span>
+            </div>
+            
+            <h3>Framework & Technology</h3>
+            <div style="margin: 1rem 0;">
+                <span class="keyword-tag">aiogram framework</span>
+                <span class="keyword-tag">python telegram bot</span>
+                <span class="keyword-tag">blockly visual programming</span>
+                <span class="keyword-tag">telegram bot api</span>
+                <span class="keyword-tag">bot development tool</span>
+                <span class="keyword-tag">code generation</span>
+                <span class="keyword-tag">async python bot</span>
+            </div>
+            
+            <h3>Use Cases</h3>
+            <div style="margin: 1rem 0;">
+                <span class="keyword-tag">customer service bot</span>
+                <span class="keyword-tag">automation bot</span>
+                <span class="keyword-tag">interactive chatbot</span>
+                <span class="keyword-tag">quiz bot</span>
+                <span class="keyword-tag">support bot</span>
+                <span class="keyword-tag">marketing bot</span>
+                <span class="keyword-tag">educational bot</span>
+                <span class="keyword-tag">business automation</span>
+            </div>
+            
+            <h3>Learning & Education</h3>
+            <div style="margin: 1rem 0;">
+                <span class="keyword-tag">learn bot development</span>
+                <span class="keyword-tag">bot programming tutorial</span>
+                <span class="keyword-tag">coding education</span>
+                <span class="keyword-tag">visual coding</span>
+                <span class="keyword-tag">programming for beginners</span>
+                <span class="keyword-tag">STEM learning</span>
+                <span class="keyword-tag">computer science education</span>
+            </div>
+        </section>
+        
+        <!-- Call to Action -->
+        <div style="text-align: center; padding: 3rem 0;">
+            <h2 style="color: #2d3748; margin-bottom: 1rem;">Ready to Build Your Bot?</h2>
+            <p style="color: #4a5568; font-size: 1.1rem; margin-bottom: 2rem;">
+                Start creating professional Telegram bots without writing code
+            </p>
+            <a href="index.html" class="back-link" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                🚀 Launch Bot Builder
+            </a>
+        </div>
+        
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 2rem 0; color: #718096; border-top: 1px solid rgba(102, 126, 234, 0.2); margin-top: 3rem;">
+            <p>&copy; 2024 BotWind - Telegram Bot Builder. Create chatbots visually without coding.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="index.html" style="color: #667eea; text-decoration: none;">Home</a> | 
+                <a href="docs.html" style="color: #667eea; text-decoration: none;">Documentation</a> | 
+                <a href="#" style="color: #667eea; text-decoration: none;">Support</a>
+            </p>
+        </footer>
+    </div>
+    
+</body>
+</html>
