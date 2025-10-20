@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://botwind.com/telegram-bot-builder/sitemap.xml
+Sitemap: https://telegrambotmaker.app/sitemap.xml
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1
